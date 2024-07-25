@@ -1,0 +1,37 @@
+name: Tests & Coverage Back-end
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+ 
+jobs:
+  tests-back:
+    name: Build & Test Back-end
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/back
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: 11
+
+      - name: Install dependencies
+        run: mvn clean install
+
+      - name: Launch tests
+        run: mvn clean test
+
+      - name: Coverage tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: Coverage Tests Back-end
+          path: target/site/jacoco

@@ -25,10 +25,10 @@ jobs:
           java-version: 11
 
       - name: Install dependencies
-        uses: mvn clean install
+        run: mvn clean install
 
       - name: Launch tests
-        uses: mvn clean test
+        run: mvn clean test
 
       - name: Coverage tests
         uses: actions/upload-artifact@v4

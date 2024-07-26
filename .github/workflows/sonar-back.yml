@@ -10,7 +10,7 @@ jobs:
   sonar-back:
     defaults:
       run:
-        working-directory: /back
+        working-directory: back
     name: Sonar Back-end
     runs-on: ubuntu-latest
 

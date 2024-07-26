@@ -8,11 +8,12 @@ on:
 
 jobs:
   sonar-front:
+    name: Sonar Front-end
+    runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: front
-    name: Sonar Front-end
-    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository code
@@ -35,3 +36,4 @@ jobs:
           args: >
             -Dsonar.projectKey=MarieM512_FS_OC_P10
             -Dsonar.organization=mariem512
+            -Dsonar.sources=front

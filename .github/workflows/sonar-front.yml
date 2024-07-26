@@ -33,7 +33,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
           SONAR_HOST_URL: http://sonarcloud.io
         with:
+          projectBaseDir: front
           args: >
             -Dsonar.projectKey=mariem512_fs-oc-p10-front
             -Dsonar.organization=mariem512
-            -Dsonar.sources=front

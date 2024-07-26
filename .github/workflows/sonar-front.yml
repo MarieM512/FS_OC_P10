@@ -34,6 +34,6 @@ jobs:
           SONAR_HOST_URL: http://sonarcloud.io
         with:
           args: >
-            -Dsonar.projectKey=MarieM512_FS_OC_P10
+            -Dsonar.projectKey=mariem512_fs-oc-p10-front
             -Dsonar.organization=mariem512
             -Dsonar.sources=front

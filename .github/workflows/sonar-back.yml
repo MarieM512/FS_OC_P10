@@ -1,3 +1,5 @@
+name: SonarQube Back-end
+
 on:
   push:
     branches: [main]

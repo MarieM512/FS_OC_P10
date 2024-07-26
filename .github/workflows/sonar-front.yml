@@ -1,6 +1,10 @@
 name: SonarQube Front-end
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   sonar-front:
@@ -27,3 +31,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: http://sonarcloud.io
+        with:
+          args: >
+            -Dsonar.projectKey=MarieM512_FS_OC_P10
+            -Dsonar.organization=mariem512

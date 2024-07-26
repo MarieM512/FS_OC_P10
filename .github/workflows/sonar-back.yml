@@ -8,6 +8,9 @@ on:
 
 jobs:
   sonar-back:
+    defaults:
+      run:
+        working-directory: /back
     name: Sonar Back-end
     runs-on: ubuntu-latest
 
@@ -39,5 +42,3 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MarieM512_FS_OC_P10
-        with:
-          projectBaseDir: back

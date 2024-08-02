@@ -32,9 +32,9 @@ jobs:
       - name: Sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
-          SONAR_HOST_URL: http://sonarcloud.io
         run: |
           npx sonar-scanner \
             -Dsonar.projectKey=mariem512_fs-oc-p10-front
             -Dsonar.organization=mariem512
+            -Dsonar.host.url=http://sonarcloud.io
         working-directory: front

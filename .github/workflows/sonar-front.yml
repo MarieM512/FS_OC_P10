@@ -1,0 +1,39 @@
+name: SonarQube Front-end
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  sonar-front:
+    name: Sonar Front-end
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: front
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Sonar
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
+          SONAR_HOST_URL: http://sonarcloud.io
+        with:
+          projectBaseDir: front
+          args: >
+            -Dsonar.projectKey=mariem512_fs-oc-p10-front
+            -Dsonar.organization=mariem512

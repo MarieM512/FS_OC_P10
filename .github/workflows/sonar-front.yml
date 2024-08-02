@@ -29,16 +29,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install sonar-scanner
-        run: npm install -g sonar-scanner
-
       - name: Sonar
+        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=mariem512_fs-oc-p10-front \
-            -Dsonar.organization=mariem512 \
-            -Dsonar.sources=. \
-            -Dsonar.host.url=http://sonarcloud.io
-        working-directory: front
+          SONAR_HOST_URL: http://sonarcloud.io
+        with:
+          projectBaseDir: front
+          args: >
+            -Dsonar.projectKey=mariem512_fs-oc-p10-front
+            -Dsonar.organization=mariem512

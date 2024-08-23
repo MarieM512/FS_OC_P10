@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  docker-back:
+  docker-front:
     name: Docker Front-end
     runs-on: ubuntu-latest
 
